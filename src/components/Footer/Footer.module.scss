@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+
+  p {
+    font-size: 1.8rem;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 1.6rem;
+    }
+  }
+}
