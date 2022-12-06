@@ -29,13 +29,15 @@ export const getMovie = async (category, id, episode) => {
     },
   })
 
+  // const media = {}
+
   const subtitles = await detail.episodeVo.filter(
     (movie) => parseInt(movie.id) === parseInt(episodeId)
   )
 
-  // console.log('Movie detail: ', detail)
-  // console.log('Movie media: ', media)
-  // console.log('Movie subtitles: ', subtitles)
+  console.log('Movie detail: ', detail)
+  console.log('Movie media: ', media)
+  console.log('Movie subtitles: ', subtitles)
 
   return { detail, media, subtitles }
 }

@@ -83,6 +83,7 @@ const Detail = () => {
   return (
     <>
       <Header />
+
       <div className={cx('wrapper')}>
         <div className={cx('back-btn')}>
           <Link to="/">{`< Back`}</Link>
