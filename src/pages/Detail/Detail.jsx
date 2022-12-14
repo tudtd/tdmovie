@@ -89,6 +89,7 @@ const Detail = () => {
           <Link to="/">{`< Back`}</Link>
         </div>
 
+        {/* Continue playing */}
         <ReactHlsPlayer
           className={cx('player')}
           crossOrigin="anonymous"
