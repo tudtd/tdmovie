@@ -1,10 +1,5 @@
 import { useState } from 'react'
-import classNames from 'classnames/bind'
-
 import styles from './ReadMore.module.scss'
-import './ReadMore.module.scss'
-
-const cx = classNames.bind(styles)
 
 const ReadMore = ({ children, length = 300 }) => {
   const text = children
@@ -18,7 +13,7 @@ const ReadMore = ({ children, length = 300 }) => {
     readMore = (
       <p>
         {isReadMore ? text.slice(0, length) : text}
-        <span onClick={toggleReadMore} className={cx('show-hide')}>
+        <span onClick={toggleReadMore} className={styles.showHide}>
           {isReadMore ? 'More...' : 'Less'}
         </span>
       </p>

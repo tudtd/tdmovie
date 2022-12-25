@@ -1,12 +1,9 @@
-import classNames from 'classnames/bind'
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import styles from './SearchList.module.scss'
 import * as movieApi from '../../../services/movieApi'
 import MovieList from '../../../components/MovieList/MovieList'
-
-const cx = classNames.bind(styles)
 
 const SearchList = () => {
   const [topSearch, setTopSearch] = useState([])
@@ -34,15 +31,15 @@ const SearchList = () => {
   // console.log('searchResults: ', searchResults)
 
   const topSearchList = (
-    <div className={cx('wrapper')}>
-      <h2 className={cx('title')}>Top Search</h2>
+    <div className={styles.wrapper}>
+      <h2 className={styles.title}>Top Search</h2>
       <MovieList data={topSearch} />
     </div>
   )
 
   const searchList = (
-    <div className={cx('wrapper')}>
-      <h2 className={cx('title')}>Results</h2>
+    <div className={styles.wrapper}>
+      <h2 className={styles.title}>Results</h2>
       <MovieList data={searchResults} />
     </div>
   )

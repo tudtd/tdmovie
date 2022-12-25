@@ -1,17 +1,13 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { useParams, Link, useSearchParams } from 'react-router-dom'
-import classNames from 'classnames/bind'
 import ReactHlsPlayer from 'react-hls-player'
 
 import * as movieApi from '../../services/movieApi'
 import styles from './Detail.module.scss'
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
 import MovieInfo from './MovieInfo/MovieInfo'
 import MovieSimilar from './MovieSimilar/MovieSimilar'
 import subtitleConvert from '../../services/subtitleConverter'
-
-const cx = classNames.bind(styles)
+import DefaultLayout from '../../layouts/DefaultLayout/DefaultLayout'
 
 const Detail = () => {
   const { category, id } = useParams()
@@ -81,26 +77,19 @@ const Detail = () => {
   }, [category, id, episode])
 
   return (
-    <>
-      <Header />
-
-      <div className={cx('wrapper')}>
-        <div className={cx('back-btn')}>
+    <DefaultLayout>
+      <div className={styles.wrapper}>
+        <div className={styles.backBtn}>
           <Link to="/">{`< Back`}</Link>
         </div>
 
-        {/* Continue playing */}
         <ReactHlsPlayer
-          className={cx('player')}
+          className={styles.player}
           crossOrigin="anonymous"
           src={media.mediaUrl}
           autoPlay={false}
           controls={true}
           width="100%"
-          // height="500px"
-          // hlsConfig={{
-          //   startPosition: currentTimeMovie,
-          // }}
           playerRef={playerRef}
         >
           {subtitles &&
@@ -141,8 +130,7 @@ const Detail = () => {
         />
         <MovieSimilar detail={detail} />
       </div>
-      <Footer />
-    </>
+    </DefaultLayout>
   )
 }
 

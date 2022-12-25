@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react'
-import classNames from 'classnames/bind'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 import styles from './HomeMovieList.module.scss'
 import * as movieApi from '../../../services/movieApi'
 import MovieList from '../../../components/MovieList/MovieList'
 import { AiOutlineLoading3Quarters as LoadingIcon } from 'react-icons/ai/'
-
-const cx = classNames.bind(styles)
 
 const HomeMovieList = () => {
   const [homeMovieList, setHomeMovieList] = useState([])
@@ -37,14 +34,14 @@ const HomeMovieList = () => {
   // console.log(homeMovieList)
 
   return (
-    <div className={cx('wrapper')}>
+    <div className={styles.wrapper}>
       <InfiniteScroll
         dataLength={homeMovieList.length}
         next={fetchData}
         hasMore={!dataEnded}
         loader={
-          <div className={cx('loading')}>
-            <LoadingIcon className={cx('loading-icon')} />
+          <div className={styles.loading}>
+            <LoadingIcon className={styles.loadingIcon} />
           </div>
         }
       >

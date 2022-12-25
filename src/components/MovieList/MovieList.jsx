@@ -1,31 +1,25 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import classNames from 'classnames/bind'
 import 'swiper/css'
 
 import styles from './MovieList.module.scss'
 import MovieItem from '../MovieItem/MovieItem'
 
-const cx = classNames.bind(styles)
-
 const MovieList = ({ data, title }) => {
-  // console.log(data)
-
   return (
-    <div className={cx('wrapper')}>
+    <div className={styles.wrapper}>
       {title && (
-        <h2 className={cx('title')}>{title.replace(' on Loklok', '')}</h2>
+        <h2 className={styles.title}>{title.replace(' on Loklok', '')}</h2>
       )}
 
-      <div className={cx('content')}>
+      <div className={styles.content}>
         <Swiper
-          className={cx('slides')}
           spaceBetween={10}
           slidesPerView={'auto'}
           speed={500}
           grabCursor={true}
         >
           {data.map((movie) => (
-            <SwiperSlide className={cx('slide')} key={movie.id}>
+            <SwiperSlide className={styles.slide} key={movie.id}>
               <MovieItem movie={movie} />
             </SwiperSlide>
           ))}

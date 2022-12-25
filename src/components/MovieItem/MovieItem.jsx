@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom'
-import classNames from 'classnames/bind'
 
 import imageResizing from '../../services/imageResizing'
 import styles from './MovieItem.module.scss'
 import Image from '../Image/Image'
-
-const cx = classNames.bind(styles)
 
 const MovieItem = ({ movie }) => {
   let link, movieCover, movieTitle
@@ -32,10 +29,10 @@ const MovieItem = ({ movie }) => {
 
   return (
     <Link to={link}>
-      <div className={cx('wrapper')}>
+      <div className={styles.wrapper}>
         <Image src={movieCover} alt={movieTitle} />
-        <div className={cx('hover')}>
-          <h3 className={cx('title')}>{movieTitle}</h3>
+        <div className={styles.hover}>
+          <h3 className={styles.title}>{movieTitle}</h3>
         </div>
       </div>
     </Link>

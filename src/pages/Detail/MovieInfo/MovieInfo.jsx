@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom'
-import classNames from 'classnames/bind'
 import { MdPlaylistAdd as AddIcon } from 'react-icons/md'
 import { MdPlaylistAddCheck as DoneIcon } from 'react-icons/md'
 
 import styles from './MovieInfo.module.scss'
 import ReadMore from '../../../components/ReadMore/ReadMore'
-
-const cx = classNames.bind(styles)
 
 const MovieInfo = ({
   detail,
@@ -16,46 +13,46 @@ const MovieInfo = ({
   removeFromFavorites,
 }) => {
   return (
-    <div className={cx('wrapper')}>
-      <div className={cx('name')}>{detail.name}</div>
+    <div className={styles.wrapper}>
+      <div className={styles.name}>{detail.name}</div>
 
       {media.mediaUrl && (
-        <div className={cx('actions')}>
+        <div className={styles.actions}>
           {isFavorited ? (
-            <div className={cx('action-btn')} onClick={removeFromFavorites}>
-              <DoneIcon className={cx('fav-icon')} />
+            <div className={styles.actionBtn} onClick={removeFromFavorites}>
+              <DoneIcon className={styles.favIcon} />
               <span>My list</span>
             </div>
           ) : (
-            <div className={cx('action-btn')} onClick={addToFavorites}>
-              <AddIcon className={cx('fav-outline-icon')} />
+            <div className={styles.actionBtn} onClick={addToFavorites}>
+              <AddIcon className={styles.favOutlineIcon} />
               <span>My list</span>
             </div>
           )}
         </div>
       )}
 
-      <ul className={cx('tags')}>
+      <ul className={styles.tags}>
         {detail.tagList?.map((tag) => (
           <li key={tag.id}>{tag.name}</li>
         ))}
       </ul>
-      <div className={cx('info')}>
-        <div className={cx('rating')}>
+      <div className={styles.info}>
+        <div className={styles.rating}>
           {detail.score && `${detail.score} IMDb`}
         </div>
 
-        {detail.areaNameList && <div className={cx('separate')} />}
+        {detail.areaNameList && <div className={styles.divider} />}
 
-        <div className={cx('region')}>
+        <div className={styles.region}>
           {detail.areaNameList && detail.areaNameList[0]}
         </div>
 
-        {detail.year && <div className={cx('separate')} />}
+        {detail.year && <div className={styles.divider} />}
 
-        <div className={cx('release')}>{detail.year}</div>
+        <div className={styles.release}>{detail.year}</div>
       </div>
-      <div className="div cx('cas')">
+      <div className={styles.star}>
         {detail.starList && (
           <ReadMore length={50}>
             {detail.starList
@@ -67,14 +64,14 @@ const MovieInfo = ({
           </ReadMore>
         )}
       </div>
-      <div className={cx('introduction')}>
+      <div className={styles.introduction}>
         {detail.introduction && (
           <ReadMore length={350}>{detail.introduction}</ReadMore>
         )}
       </div>
       {detail.episodeCount && (
-        <div className={cx('episode')}>
-          <h3 className={cx('episode-count')}>
+        <div className={styles.episode}>
+          <h3 className={styles.episodeCount}>
             Episodes:
             <span>
               {`${
@@ -85,20 +82,20 @@ const MovieInfo = ({
             </span>
           </h3>
 
-          <ul className={cx('episode-list')}>
+          <ul className={styles.episodeList}>
             {detail.episodeVo &&
               detail.episodeVo.map((item, index) => (
                 <Link key={item.id} to={`?episode=${item.id}`}>
                   <li
-                    className={cx(
+                    className={
                       detail.episodeVo.indexOf(
                         detail.episodeVo.find(
                           (el) => el.id === +media.episodeId
                         )
                       ) === index
-                        ? 'episode-active'
+                        ? styles.episodeActive
                         : ''
-                    )}
+                    }
                   >
                     {index + 1}
                   </li>

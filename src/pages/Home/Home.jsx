@@ -1,23 +1,17 @@
-import classNames from 'classnames/bind'
 import styles from './Home.module.scss'
 
-import Header from '../../components/Header/Header'
 import HomeMovieList from './HomeMovieList/HomeMovieList'
 import FavoritedList from './FavoritedList/FavoritedList'
-import Footer from '../../components/Footer/Footer'
-
-const cx = classNames.bind(styles)
+import DefaultLayout from '../../layouts/DefaultLayout/DefaultLayout'
 
 const Home = () => {
   return (
-    <>
-      <Header />
-      <div className={cx('wrapper')}>
+    <DefaultLayout>
+      <div className={styles.wrapper}>
         <FavoritedList />
         <HomeMovieList />
       </div>
-      <Footer />
-    </>
+    </DefaultLayout>
   )
 }
 

@@ -1,11 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import classNames from 'classnames/bind'
 
 import styles from './SearchForm.module.scss'
 import * as movieApi from '../../../services/movieApi'
-
-const cx = classNames.bind(styles)
 
 const SearchForm = () => {
   const [searchInput, setSearchInput] = useState('')
@@ -53,10 +50,10 @@ const SearchForm = () => {
   }
 
   return (
-    <div className={cx('wrapper')}>
-      <form className={cx('search-form')} onSubmit={handleSubmit}>
+    <div className={styles.wrapper}>
+      <form className={styles.searchForm} onSubmit={handleSubmit}>
         <input
-          className={cx('search-input')}
+          className={styles.searchInput}
           type="text"
           placeholder="Tìm kiếm phim..."
           value={searchInput}
@@ -67,7 +64,7 @@ const SearchForm = () => {
       </form>
 
       {searchSuggestion.length > 0 ? (
-        <ul className={cx('search-suggestion')}>
+        <ul className={styles.searchSuggestion}>
           {searchSuggestion.map((item, index) => {
             const itemReplaced = item.replace(/<em>|<\/em>/g, '')
             return (
