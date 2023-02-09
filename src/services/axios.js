@@ -22,6 +22,27 @@ const movieRequest = axios.create({
   },
 })
 
+movieRequest.interceptors.request.use(
+  async (config) => {
+    const customConfig = {
+      ...config,
+      headers: {
+        lang: 'en',
+        versioncode: '32',
+        clienttype: 'android_tem3',
+        deviceid: randomDeviceId(16),
+        sign: randomDeviceId(32),
+        'user-agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36 OPR/84.0.4316.52',
+      },
+    }
+    return customConfig
+  },
+  (err) => {
+    return Promise.reject(err)
+  }
+)
+
 movieRequest.interceptors.response.use(
   (response) => {
     if (response && response.data && response.data.data) {
