@@ -1,11 +1,11 @@
-.search-form {
+.searchForm {
   display: flex;
   justify-content: center;
   width: 100%;
   margin-top: 20px;
 }
 
-.search-input {
+.searchInput {
   width: 80%;
   padding: 12px;
   outline: none;
@@ -22,7 +22,7 @@
   }
 }
 
-.search-suggestion {
+.searchSuggestion {
   width: 80%;
   margin: 1rem auto;
   padding: 1rem;

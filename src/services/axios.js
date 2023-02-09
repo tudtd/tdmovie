@@ -1,13 +1,24 @@
 import axios from 'axios'
 
+const randomDeviceId = (length = 16) => {
+  const hexCharacters = '0123456789abcdef'
+  let deviceid = ''
+  for (let i = 0; i < length; ++i) {
+    deviceid += hexCharacters.charAt(Math.floor(Math.random() * 16))
+  }
+  return deviceid
+}
+
 const movieRequest = axios.create({
-  baseURL: process.env.REACT_APP_MOVIE_API,
+  baseURL: process.env.REACT_APP_BASE_URL,
 
   headers: {
     lang: 'en',
-    versioncode: '11',
-    clienttype: 'ios_jike_default',
-    deviceid: Math.random().toString(36).slice(-8),
+    versioncode: '32',
+    clienttype: 'android_tem3',
+    deviceid: randomDeviceId(16),
+    'user-agent':
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36 OPR/84.0.4316.52',
   },
 })
 
