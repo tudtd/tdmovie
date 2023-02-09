@@ -10,7 +10,7 @@ const randomDeviceId = (length = 16) => {
 }
 
 const movieRequest = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: process.env.REACT_APP_BASE_URL_LOCAL,
 
   headers: {
     lang: 'en',
